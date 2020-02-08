@@ -2,7 +2,8 @@
   Создать и вернуть пустой объект
  */
 function createObject() {
-
+  let obj = {};
+  return obj;
 }
 
 /**
@@ -19,7 +20,11 @@ function createObject() {
  * @param object
  */
 function getCountOfProp(object) {
-
+  let kolichestvo = 0;
+  for (key in object) {
+    kolichestvo = kolichestvo + 1;
+  }
+  return kolichestvo;
 }
 
 /**
@@ -27,7 +32,12 @@ function getCountOfProp(object) {
  * @param obj
  */
 function copyObject(obj) {
+  let clone = {};
+  for (let key in obj) {
+    clone[key] = obj[key];
+  }
 
+  return clone;
 }
 
 /**
@@ -38,7 +48,14 @@ function copyObject(obj) {
  * mergeObject(a, b) = { name: 'Max', age: 18, }
  */
 function mergeObject(objectA, objectB) {
-
+  let clone = {};
+  for (key in objectA) {
+    clone[key] = objectA[key];
+  }
+  for (key in objectB) {
+    clone[key] = objectB[key];
+  }
+  return clone;
 }
 
 /**
@@ -47,7 +64,10 @@ function mergeObject(objectA, objectB) {
  * hasKey(a, 'name') = true
  */
 function hasKey(object, key) {
-
+  for (key in object) {
+    key = true;
+  }
+  return key;
 }
 
 /**
@@ -60,8 +80,11 @@ function hasKey(object, key) {
  * addToObject(a, key, value) = { name: '1', age: 18 }
  */
 function addToObject(object, key, value) {
-
+  object[key] = value;
+  return object;
 }
+
+// https://github.com/zepster/js-lessons/issues/1
 
 module.exports = {
   createObject,
